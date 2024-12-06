@@ -8,6 +8,7 @@ import { z } from "zod"
 import { validate } from "../middleware/validate"
 import { ClickModel } from "../models/clicks"
 import { DeviceModel } from "../models/devices"
+import { HoverModel } from "../models/hovers"
 import { LocationModel } from "../models/locations"
 import { SessionModel } from "../models/session"
 
@@ -103,7 +104,7 @@ interactionRouter.post("/interactions", [
       const mouseExitedAt = new Date(req.body.mouseExitedAt)
       const duration = mouseExitedAt.getTime() - mouseEnteredAt.getTime()
 
-      await ClickModel.create({
+      await HoverModel.create({
         contentId,
         deviceId,
         duration,
