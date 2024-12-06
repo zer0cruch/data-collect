@@ -16,7 +16,7 @@ dotenv.config()
 const app = express()
 
 app.set("trust proxy", true)
-app.use(cors())
+app.use(cors({ origin: "*" }))
 app.use(express.json())
 
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")))
